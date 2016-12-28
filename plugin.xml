@@ -6,14 +6,40 @@
     </js-module>
 
     <platform name="android">
+
+        <preference name="APP_ID" default="" />
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Pinterest">
                 <param name="android-package" value="com.zyramedia.cordova.pinterest.Pinterest" />
             </feature>
+            <feature name="PinterestLoginActivity">
+                <param name="android-package" value="com.zyramedia.cordova.pinterest.PinterestLoginActivity" />
+            </feature>
         </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="pdk$APP_ID" />
+            </intent-filter>
+        </config-file>
+
+        <config-file target="AnroidManifest.xml" parent="/manifest/application">
+            <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="Pinterest Login" android:launchMode="singleTop" android:name="PinterestLoginActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
+            </activity>
+            <meta-data android:name="com.zyramedia.cordova.pinterest.APP_ID" android:value="$APP_ID" />
+        </config-file>
+
         <source-file src="src/android/Pinterest.java" target-dir="src/com/zyramedia/cordova/pinterest" />
+        <source-file src="src/android/PinterestLoginActivity.java" target-dir="src/com/zyramedia/cordova/pinterest" />
+
+        <resource-file src="src/android/pdk.jar" target="libs/pdk.jar" />
+
         <framework src="src/android/Pinterest.gradle" custom="true" type="gradleReference" />
-        <resource-file src="src/android/pdk.aar" target="libs/pdk.aar" />
+
     </platform>
 
     <platform name="ios">
