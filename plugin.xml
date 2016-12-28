@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-pinterest" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-pinterest</name>
+    <js-module name="Pinterest" src="www/Pinterest.js">
+        <clobbers target="cordova.plugins.Pinterest" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Pinterest">
+                <param name="android-package" value="com.zyramedia.cordova.pinterest.Pinterest" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/Pinterest.java" target-dir="src/com/zyramedia/cordova/pinterest" />
+        <framework src="src/android/Pinterest.gradle" custom="true" type="gradleReference" />
+        <resource-file src="src/android/pdk.aar" target="libs/pdk.aar" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/">
+            <feature name="Pinterest">
+                <param name="ios-package" value="Pinterest" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/Pinterest.h" />
+        <source-file src="src/ios/Pinterest.m" />
+        <framework src="PinterestSDK" type="podspec" spec="~> 1.0.2" />
+    </platform>
+
+</plugin>
