@@ -4,10 +4,10 @@
     <js-module name="Pinterest" src="www/Pinterest.js">
         <clobbers target="cordova.plugins.Pinterest" />
     </js-module>
-
+    <preference name="APP_ID" default="" />
     <platform name="android">
 
-        <preference name="APP_ID" default="" />
+
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Pinterest">
@@ -37,7 +37,7 @@
     </platform>
 
     <platform name="ios">
-        <config-file target="config.xml" parent="/">
+        <config-file target="config.xml" parent="/*">
             <feature name="Pinterest">
                 <param name="ios-package" value="Pinterest" />
             </feature>
@@ -53,6 +53,31 @@
                         <string>pdk$APP_ID</string>
                     </array>
                 </dict>
+            </array>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="PinterestAppId">
+            <string>$APP_ID</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>pinit</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                </dict>
+            </dict>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>pinterestsdk.v1</string>
             </array>
         </config-file>
 
