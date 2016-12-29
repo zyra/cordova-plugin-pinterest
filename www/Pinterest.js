@@ -157,6 +157,7 @@ var Pinterest = {
      * @param onError
      */
     createBoard: function(name, desc, onSuccess, onError) {
+        desc = desc || '';
         exec(onSuccess, onError, 'Pinterest', 'createBoard', [name, desc]);
     },
 
@@ -194,6 +195,7 @@ var Pinterest = {
      * @param onError
      */
     createPin: function(note, boardId, imageUrl, link, onSuccess, onError) {
+        link = link || '';
         exec(onSuccess, onError, 'Pinterest', 'createPin', [note, boardId, imageUrl, link]);
     }
 

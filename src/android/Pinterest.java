@@ -30,20 +30,18 @@ public class Pinterest extends CordovaPlugin {
   private static final String TAG = "PinterestCordovaPlugin";
   private PDKClient pdkClient;
   private Context context;
-  private Activity activity;
-  private String APP_ID;
   private String ACCESS_TOKEN;
-
-  private final int REQUEST_CODE_LOGIN = 1000;
 
   @Override
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
-    this.context = webView.getContext();
-    activity = cordova.getActivity();
+    final Activity activity = cordova.getActivity();
+
+    context = webView.getContext();
+
     try {
       ApplicationInfo applicationInfo = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
-      APP_ID = applicationInfo.metaData.getString("com.zyramedia.cordova.pinterest.APP_ID");
+      final String APP_ID = applicationInfo.metaData.getString("com.zyramedia.cordova.pinterest.APP_ID");
       pdkClient = PDKClient.configureInstance(context, APP_ID);
       pdkClient.onConnect(context);
       PDKClient.setDebugMode(true);
@@ -80,25 +78,37 @@ public class Pinterest extends CordovaPlugin {
   }
 
   @Override
-  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+  public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+
+    final PDKCallback _callback = getCallback(callbackContext);
 
     try {
       // Methods without fields param
       if (action.equals("login")) {
+
         login(args, callbackContext);
         return true;
+
       } else if(action.equals("deleteBoard")) {
 
+        pdkClient.deleteBoard(args.getString(0), _callback);
         return true;
+
       } else if(action.equals("createBoard")) {
 
+        pdkClient.createBoard(args.getString(0), args.getString(1), _callback);
         return true;
+
       } else if(action.equals("deletePin")) {
 
+        pdkClient.deletePin(args.getString(0), _callback);
         return true;
+
       } else if(action.equals("createPin")) {
 
+        pdkClient.createPin(args.getString(0), args.getString(1), args.getString(2), args.getString(3), _callback);
         return true;
+
       }
 
 
@@ -112,39 +122,47 @@ public class Pinterest extends CordovaPlugin {
 
       if (action.equals("getMe")) {
 
-        pdkClient.getMe(fields, getCallback(callbackContext));
+        pdkClient.getMe(fields, _callback);
 
       } else if (action.equals("getMyPins")) {
 
-        pdkClient.getMyPins(fields, getCallback(callbackContext));
+        pdkClient.getMyPins(fields, _callback);
 
       } else if (action.equals("getMyBoards")) {
 
-        pdkClient.getMyBoards(fields, getCallback(callbackContext));
+        pdkClient.getMyBoards(fields, _callback);
 
       } else if (action.equals("getMyLikes")) {
 
-        pdkClient.getMyLikes(fields, getCallback(callbackContext));
+        pdkClient.getMyLikes(fields, _callback);
 
       } else if (action.equals("getMyFollowers")) {
 
-        pdkClient.getMyFollowers(fields, getCallback(callbackContext));
+        pdkClient.getMyFollowers(fields, _callback);
 
       } else if (action.equals("getMyFollowedBoards")) {
 
-        pdkClient.getMyFollowedBoards(fields, getCallback(callbackContext));
+        pdkClient.getMyFollowedBoards(fields, _callback);
 
       } else if (action.equals("getMyFollowedInterests")) {
 
-        pdkClient.getMyFollowedInterests(fields, getCallback(callbackContext));
+        pdkClient.getMyFollowedInterests(fields, _callback);
 
       } else if (action.equals("getUser")) {
 
-        pdkClient.getUser(args.getString(1), fields, getCallback(callbackContext));
+        pdkClient.getUser(args.getString(1), fields, _callback);
 
-      } else if (action.equals("api")) {
+      } else if (action.equals("getBoard")) {
 
-        callAPI(args, callbackContext);
+        pdkClient.getBoard(args.getString(1), fields, _callback);
+
+      } else if (action.equals("getBoardPins")) {
+
+        pdkClient.getBoardPins(args.getString(1), fields, _callback);
+
+      } else if (action.equals("getPin")) {
+
+        pdkClient.getPin(args.getString(1), fields, _callback);
 
       } else {
 
@@ -189,15 +207,8 @@ public class Pinterest extends CordovaPlugin {
     };
   }
 
-  private void callAPI(JSONArray args, final CallbackContext callbackContext) {
-
-  }
-
-
-
-
   private void login(JSONArray jsonScopes, final CallbackContext callbackContext) {
-    final List scopes = new ArrayList<String>();
+    final List<String> scopes = new ArrayList<String>();
 
     try {
       if (jsonScopes.length() > 0) {
@@ -244,8 +255,6 @@ public class Pinterest extends CordovaPlugin {
     } catch (JSONException e) {
       Log.d(TAG, e.getMessage());
     }
-
-
 
   }
 
