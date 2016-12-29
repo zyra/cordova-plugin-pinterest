@@ -82,70 +82,77 @@ public class Pinterest extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-    if (action.equals("login")) {
-      login(args, callbackContext);
-      return true;
-    }
-
-    String fields = null;
-
     try {
+      // Methods without fields param
+      if (action.equals("login")) {
+        login(args, callbackContext);
+        return true;
+      } else if(action.equals("deleteBoard")) {
+
+        return true;
+      } else if(action.equals("createBoard")) {
+
+        return true;
+      } else if(action.equals("deletePin")) {
+
+        return true;
+      } else if(action.equals("createPin")) {
+
+        return true;
+      }
+
+
+      // Methods with fields param
+
+      String fields = null;
+
       if (args.length() > 0) {
         fields = args.getString(0);
       }
-    } catch (JSONException e) {
-      Log.d(TAG, "Error parsing args");
-      callbackContext.error(e.toString());
-      return false;
-    }
 
-    Log.i(TAG, args.toString());
+      if (action.equals("getMe")) {
 
-    if (action.equals("getMe")) {
-      Log.d(TAG, fields);
-      pdkClient.getMe(fields, getCallback(callbackContext));
+        pdkClient.getMe(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getMyPins")) {
+      } else if (action.equals("getMyPins")) {
 
-      pdkClient.getMyPins(fields, getCallback(callbackContext));
+        pdkClient.getMyPins(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getMyBoards")) {
+      } else if (action.equals("getMyBoards")) {
 
-      pdkClient.getMyBoards(fields, getCallback(callbackContext));
+        pdkClient.getMyBoards(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getMyLikes")) {
+      } else if (action.equals("getMyLikes")) {
 
-      pdkClient.getMyLikes(fields, getCallback(callbackContext));
+        pdkClient.getMyLikes(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getMyFollowers")) {
+      } else if (action.equals("getMyFollowers")) {
 
-      pdkClient.getMyFollowers(fields, getCallback(callbackContext));
+        pdkClient.getMyFollowers(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getMyFollowedBoards")) {
+      } else if (action.equals("getMyFollowedBoards")) {
 
-      pdkClient.getMyFollowedBoards(fields, getCallback(callbackContext));
+        pdkClient.getMyFollowedBoards(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getMyFollowedInterests")) {
+      } else if (action.equals("getMyFollowedInterests")) {
 
-      pdkClient.getMyFollowedInterests(fields, getCallback(callbackContext));
+        pdkClient.getMyFollowedInterests(fields, getCallback(callbackContext));
 
-    } else if (action.equals("getUser")) {
+      } else if (action.equals("getUser")) {
 
-      try {
         pdkClient.getUser(args.getString(1), fields, getCallback(callbackContext));
-      } catch (JSONException e) {
-        Log.d(TAG, "Error getting user");
-        callbackContext.error(e.getMessage());
+
+      } else if (action.equals("api")) {
+
+        callAPI(args, callbackContext);
+
+      } else {
+
+        return false;
+
       }
-
-    } else if (action.equals("api")) {
-
-      callAPI(args, callbackContext);
-
-    } else {
-
-      return false;
-
+    } catch (JSONException e) {
+      callbackContext.error(e.getMessage());
     }
 
     return true;
