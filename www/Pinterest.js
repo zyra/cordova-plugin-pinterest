@@ -22,79 +22,177 @@ var Pinterest = {
         exec(onSuccess, onError, 'Pinterest', 'login', scopes);
     },
 
-    /** User **/
+    // Users
 
+    /**
+     * Get the user's profile information
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMe: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.USER;
         exec(onSuccess, onError, 'Pinterest', 'getMe', [fields]);
     },
 
+    /**
+     * Get the user's pins
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMyPins: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
         exec(onSuccess, onError, 'Pinterest', 'getMyPins', [fields]);
     },
 
+    /**
+     * Get the user's boards
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMyBoards: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.BOARD;
         exec(onSuccess, onError, 'Pinterest', 'getMyBoards', [fields]);
     },
 
+    /**
+     * Get the user's likes
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMyLikes: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
         exec(onSuccess, onError, 'Pinterest', 'getMyLikes', [fields]);
     },
 
+    /**
+     * Get the user's followers
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMyFollowers: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.USER;
         exec(onSuccess, onError, 'Pinterest', 'getMyFollowers', [fields]);
     },
 
+    /**
+     * Get followed boards
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMyFollowedBoards: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.BOARD;
         exec(onSuccess, onError, 'Pinterest', 'getMyFollowedBoards', [fields]);
     },
 
+    /**
+     * Get followed interests
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getMyFollowedInterests: function(onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.INTEREST;
         exec(onSuccess, onError, 'Pinterest', 'getMyFollowedInterests', [fields]);
     },
 
-    getUser: function(userId, onSuccess, onError, fields) {
+    /**
+     * Get a user's profile information by username
+     * @param username
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
+    getUser: function(username, onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.USER;
-        exec(onSuccess, onError, 'Pinterest', 'getUser', [fields, userId]);
+        exec(onSuccess, onError, 'Pinterest', 'getUser', [fields, username]);
     },
 
-    /** Board **/
+    // Boards
 
+    /**
+     * Get board by id
+     * @param boardId
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getBoard: function(boardId, onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.BOARD;
         exec(onSuccess, onError, 'Pinterest', 'getBoard', [fields, boardId]);
     },
 
+    /**
+     * Get Pins for a specific board
+     * @param boardId
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getBoardPins: function(boardId, onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
         exec(onSuccess, onError, 'Pinterest', 'getBoardPins', [fields, boardId]);
     },
 
+    /**
+     * Deletes the specified board
+     * @param boardId
+     * @param onSuccess
+     * @param onError
+     */
     deleteBoard: function(boardId, onSuccess, onError) {
         exec(onSuccess, onError, 'Pinterest', 'deleteBoard', [boardId]);
     },
 
+    /**
+     * Creates a board for the authenticated user
+     * @param name
+     * @param desc
+     * @param onSuccess
+     * @param onError
+     */
     createBoard: function(name, desc, onSuccess, onError) {
         exec(onSuccess, onError, 'Pinterest', 'createBoard', [name, desc]);
     },
 
-    /** Pin **/
+    // Pins
 
+    /**
+     * Get Pin by id
+     * @param pinId
+     * @param onSuccess
+     * @param onError
+     * @param fields
+     */
     getPin: function(pinId, onSuccess, onError, fields) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
         exec(onSuccess, onError, 'Pinterest', 'getPin', [fields, pinId]);
     },
 
+    /**
+     * Deletes the specified Pin
+     * @param pinId
+     * @param onSuccess
+     * @param onError
+     */
     deletePin: function(pinId, onSuccess, onError) {
         exec(onSuccess, onError, 'Pinterest', 'deletePin', [pinId]);
     },
 
+    /**
+     * Creates a board for the authenticated user
+     * @param note
+     * @param boardId
+     * @param imageUrl
+     * @param link
+     * @param onSuccess
+     * @param onError
+     */
     createPin: function(note, boardId, imageUrl, link, onSuccess, onError) {
         exec(onSuccess, onError, 'Pinterest', 'createPin', [note, boardId, imageUrl, link]);
     }
