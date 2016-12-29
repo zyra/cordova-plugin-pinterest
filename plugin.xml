@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-pinterest" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-pinterest" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-pinterest</name>
     <js-module name="Pinterest" src="www/Pinterest.js">
         <clobbers target="cordova.plugins.Pinterest" />
@@ -13,9 +13,6 @@
             <feature name="Pinterest">
                 <param name="android-package" value="com.zyramedia.cordova.pinterest.Pinterest" />
             </feature>
-            <feature name="PinterestLoginActivity">
-                <param name="android-package" value="com.zyramedia.cordova.pinterest.PinterestLoginActivity" />
-            </feature>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
@@ -27,14 +24,11 @@
             </intent-filter>
         </config-file>
 
-        <config-file target="AnroidManifest.xml" parent="/manifest/application">
-            <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="Pinterest Login" android:launchMode="singleTop" android:name="PinterestLoginActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
-            </activity>
-            <meta-data android:name="com.zyramedia.cordova.pinterest.APP_ID" android:value="$APP_ID" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.zyramedia.cordova.pinterest.APP_ID" android:value="\ $APP_ID" />
         </config-file>
 
         <source-file src="src/android/Pinterest.java" target-dir="src/com/zyramedia/cordova/pinterest" />
-        <source-file src="src/android/PinterestLoginActivity.java" target-dir="src/com/zyramedia/cordova/pinterest" />
 
         <resource-file src="src/android/pdk.jar" target="libs/pdk.jar" />
 
