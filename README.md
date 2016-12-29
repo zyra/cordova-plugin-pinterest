@@ -25,6 +25,13 @@ The following items are complete and stable:
   - getMyFollowedBoards
   - getMyFollowedInterests
   - getUser
+  - getBoard
+  - getBoardPins
+  - deleteBoard
+  - createBoard
+  - getPin
+  - deletePin
+  - createPin
 
 - iOS
-  - Not started yet
+  - login
