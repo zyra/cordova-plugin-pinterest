@@ -15,7 +15,12 @@
   },
   "keywords": [
     "cordova",
-    "plugin"
+    "plugin",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "pinterest",
+    "cordova-plugin"
   ],
   "author": "Ibby Hadeed <i.hadeed@zyra.ca>",
   "license": "MIT",
