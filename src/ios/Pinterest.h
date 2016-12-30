@@ -5,8 +5,6 @@
 
 @property (nonatomic, retain) NSString* accessToken;
 
-- (void (^)(NSError*)) getError:(CDVInvokedUrlCommand*) command;
-
 - (void) login:(CDVInvokedUrlCommand*)command;
 - (void) getMe:(CDVInvokedUrlCommand*)command;
 - (void) getMyPins:(CDVInvokedUrlCommand*)command;
