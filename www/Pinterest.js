@@ -41,9 +41,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getMyPins: function(onSuccess, onError, fields) {
+    getMyPins: function(onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
-        exec(onSuccess, onError, 'Pinterest', 'getMyPins', [fields]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getMyPins', [fields, limit]);
     },
 
     /**
@@ -52,9 +53,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getMyBoards: function(onSuccess, onError, fields) {
+    getMyBoards: function(onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.BOARD;
-        exec(onSuccess, onError, 'Pinterest', 'getMyBoards', [fields]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getMyBoards', [fields, limit]);
     },
 
     /**
@@ -63,9 +65,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getMyLikes: function(onSuccess, onError, fields) {
+    getMyLikes: function(onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
-        exec(onSuccess, onError, 'Pinterest', 'getMyLikes', [fields]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getMyLikes', [fields, limit]);
     },
 
     /**
@@ -74,9 +77,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getMyFollowers: function(onSuccess, onError, fields) {
+    getMyFollowers: function(onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.USER;
-        exec(onSuccess, onError, 'Pinterest', 'getMyFollowers', [fields]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getMyFollowers', [fields, limit]);
     },
 
     /**
@@ -85,9 +89,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getMyFollowedBoards: function(onSuccess, onError, fields) {
+    getMyFollowedBoards: function(onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.BOARD;
-        exec(onSuccess, onError, 'Pinterest', 'getMyFollowedBoards', [fields]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getMyFollowedBoards', [fields, limit]);
     },
 
     /**
@@ -96,9 +101,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getMyFollowedInterests: function(onSuccess, onError, fields) {
+    getMyFollowedInterests: function(onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.INTEREST;
-        exec(onSuccess, onError, 'Pinterest', 'getMyFollowedInterests', [fields]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getMyFollowedInterests', [fields, limit]);
     },
 
     /**
@@ -134,9 +140,10 @@ var Pinterest = {
      * @param onError
      * @param fields
      */
-    getBoardPins: function(boardId, onSuccess, onError, fields) {
+    getBoardPins: function(boardId, onSuccess, onError, fields, limit) {
         fields = fields || Pinterest.DEFAULT_FIELDS.PIN;
-        exec(onSuccess, onError, 'Pinterest', 'getBoardPins', [fields, boardId]);
+        limit = limit || 100;
+        exec(onSuccess, onError, 'Pinterest', 'getBoardPins', [fields, limit, boardId]);
     },
 
     /**
