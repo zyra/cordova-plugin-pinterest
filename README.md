@@ -1,3 +1,7 @@
+[![npm](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest)
+
+[![NPM](https://nodei.co/npm/cordova-plugin-pinterest.png?stars&downloads)](https://nodei.co/npm/cordova-plugin-pinterest/)
+
 # cordova-plugin-pinterest
 Cordova plugin for Pinterest
 
