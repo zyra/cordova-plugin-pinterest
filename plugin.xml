@@ -1,13 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-pinterest" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-pinterest" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-pinterest</name>
     <js-module name="Pinterest" src="www/Pinterest.js">
         <clobbers target="cordova.plugins.Pinterest" />
     </js-module>
     <preference name="APP_ID" default="" />
     <platform name="android">
-
-
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Pinterest">
