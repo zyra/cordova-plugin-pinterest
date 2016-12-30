@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-pinterest",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Cordova plugin for Pinterest",
   "cordova": {
     "id": "cordova-plugin-pinterest",
