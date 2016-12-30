@@ -23,6 +23,7 @@ import com.pinterest.android.pdk.PDKException;
 import com.pinterest.android.pdk.PDKResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Pinterest extends CordovaPlugin {
@@ -115,9 +116,21 @@ public class Pinterest extends CordovaPlugin {
       // Methods with fields param
 
       String fields = null;
+      Integer limit;
+      HashMap<String, String> params = null;
 
       if (args.length() > 0) {
         fields = args.getString(0);
+
+        if (args.length() > 1) {
+          // we have limit
+          params = new HashMap<String, String>();
+          limit = args.getInt(1);
+
+          params.put("fields", fields);
+          params.put("limit", limit.toString());
+        }
+
       }
 
       if (action.equals("getMe")) {
@@ -126,27 +139,27 @@ public class Pinterest extends CordovaPlugin {
 
       } else if (action.equals("getMyPins")) {
 
-        pdkClient.getMyPins(fields, _callback);
+        pdkClient.getPath("me/pins", params, _callback);
 
       } else if (action.equals("getMyBoards")) {
 
-        pdkClient.getMyBoards(fields, _callback);
+        pdkClient.getPath("me/boards", params, _callback);
 
       } else if (action.equals("getMyLikes")) {
 
-        pdkClient.getMyLikes(fields, _callback);
+        pdkClient.getPath("me/likes", params, _callback);
 
       } else if (action.equals("getMyFollowers")) {
 
-        pdkClient.getMyFollowers(fields, _callback);
+        pdkClient.getPath("me/followers", params, _callback);
 
       } else if (action.equals("getMyFollowedBoards")) {
 
-        pdkClient.getMyFollowedBoards(fields, _callback);
+        pdkClient.getPath("me/following/boards", params, _callback);
 
       } else if (action.equals("getMyFollowedInterests")) {
 
-        pdkClient.getMyFollowedInterests(fields, _callback);
+        pdkClient.getPath("me/following/interests", params, _callback);
 
       } else if (action.equals("getUser")) {
 
@@ -158,7 +171,7 @@ public class Pinterest extends CordovaPlugin {
 
       } else if (action.equals("getBoardPins")) {
 
-        pdkClient.getBoardPins(args.getString(1), fields, _callback);
+        pdkClient.getPath("boards/" + args.getString(2) + "/pins", params, _callback);
 
       } else if (action.equals("getPin")) {
 
