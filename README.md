@@ -205,4 +205,3 @@ Create a Pin for the authenticated user.
 ## Quirks
 
 - This plugin does not provide any pagination features. You are limited only to the latest 100 entries and you cannot fetch the next pages. This can be fixed but it will make this API more complicated. It can be added if demanded by many users.
-Update
