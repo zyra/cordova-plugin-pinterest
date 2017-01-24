@@ -10,11 +10,11 @@ This plugin supports Android and iOS
 
 ## Installation
 ```shell
-cordova plugin add cordova-plugin-pinterest
+cordova plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
 
 // or 
 
-cordova plugin add https://github.com/zyramedia/cordova-plugin-pinterest
+cordova plugin add https://github.com/zyramedia/cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
 
 ```
 
