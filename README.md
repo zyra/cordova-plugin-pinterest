@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/cordova-plugin-pinterest.png?stars&downloads)](https://nodei.co/npm/cordova-plugin-pinterest/)
 
-# cordova-plugin-pinterest
+# Cordova Pinterest Plugin
 Cordova plugin for Pinterest
 
 ## Platforms
