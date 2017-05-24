@@ -206,3 +206,11 @@ Create a Pin for the authenticated user.
 ## Quirks
 
 - This plugin does not provide any pagination features. You are limited only to the latest 100 entries and you cannot fetch the next pages. This can be fixed but it will make this API more complicated. It can be added if demanded by many users.
+
+<br><br>
+## Contribution
+- **Having an issue**? or looking for support? [Open an issue](https://github.com/zyra/ionic-image-loader/issues/new) and we will get you the help you need.
+- Got a **new feature or a bug fix**? Fork the repo, make your changes, and submit a pull request.
+
+## Support this project
+If you find this project useful, please star the repo to let people know that it's reliable. Also, share it with friends and colleagues that might find this useful as well. Thank you :smile:
