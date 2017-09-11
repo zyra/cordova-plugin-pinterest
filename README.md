@@ -1,7 +1,6 @@
-[![npm](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest)
-
-[![NPM](https://nodei.co/npm/cordova-plugin-pinterest.png?stars&downloads)](https://nodei.co/npm/cordova-plugin-pinterest/)
-[![NPM](https://nodei.co/npm-dl/cordova-plugin-pinterest.png?months=6&height=2)](https://nodei.co/npm/cordova-plugin-pinterest/)
+[![npm](https://img.shields.io/npm/l/cordova-plugin-pinterest.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest/)
+[![npm](https://img.shields.io/npm/dt/cordova-plugin-pinterest.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest)
+[![npm](https://img.shields.io/npm/dm/cordova-plugin-pinterest.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest)
 
 # Cordova Pinterest Plugin
 Cordova plugin for Pinterest
