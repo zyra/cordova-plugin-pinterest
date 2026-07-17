@@ -1,3 +1,6 @@
+> [!WARNING]
+> This Cordova plugin is deprecated and no longer maintained. The repository is archived and the npm package is deprecated. The source remains available for historical reference, but no fixes or support will be provided.
+
 [![npm](https://img.shields.io/npm/l/cordova-plugin-pinterest.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest/)
 [![npm](https://img.shields.io/npm/dt/cordova-plugin-pinterest.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest)
 [![npm](https://img.shields.io/npm/dm/cordova-plugin-pinterest.svg)](https://www.npmjs.com/package/cordova-plugin-pinterest)
